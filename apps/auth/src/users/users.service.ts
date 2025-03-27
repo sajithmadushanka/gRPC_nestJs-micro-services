@@ -13,7 +13,11 @@ import { Observable, Subject } from 'rxjs';
 export class UsersService implements OnModuleInit {
   private readonly users: User[] = [];
 
-  onModuleInit() {}
+  onModuleInit() {
+    for (let i = 0; i <= 100; i++) {
+      this.create({ email: randomUUID(), password: randomUUID(), age: 0 });
+    }
+  }
 
   create(createUserDto: CreateUserDto) {
     const user: User = {

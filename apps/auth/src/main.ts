@@ -2,7 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { AuthModule } from './auth.module';
 import { MicroserviceOptions, Transport } from '@nestjs/microservices';
 import { join } from 'path';
-import { Auth } from '@app/common';
+import { AUTH_PACKAGE_NAME } from '@app/common';
 
 async function bootstrap() {
   const app = await NestFactory.createMicroservice<MicroserviceOptions>(
@@ -11,11 +11,11 @@ async function bootstrap() {
       transport: Transport.GRPC,
       options: {
         protoPath: join(__dirname, '../auth.proto'),
-        package: Auth,
+        package: AUTH_PACKAGE_NAME,
       },
     },
   );
   await app.listen();
-  console.log('Auth microservice is listening');
+  console.log(`AUTH - Application is running on`);
 }
 bootstrap();
