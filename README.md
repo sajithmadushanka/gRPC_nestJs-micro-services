@@ -1,0 +1,1 @@
+protoc --plugin=protoc-gen-ts_proto="C:\path\to\your\project\folder\node_modules\bin\protoc-gen-ts_proto.cmd" --ts_proto_out=./ --ts_proto_opt=nestJs=true ./proto/yourfile.proto
